@@ -17,7 +17,7 @@ using namespace std;
 enum Algorithm { DIAMETER, CLUSTER, DEGREE };
 
 void create_empty_sheet(Algorithm a);
-void write_to_sheet(Algorithm a, int n, int data, map<int, int>* degrees);
+void write_to_sheet(Algorithm a, int n, float data, map<int, int>* degrees);
 double get_random_float();
 
 struct degen {

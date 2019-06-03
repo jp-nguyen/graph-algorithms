@@ -18,7 +18,7 @@ void create_empty_sheet(Algorithm a) {
     file.close();
 }
 
-void write_to_sheet(Algorithm a, int n, int data, map<int, int>* degrees) {
+void write_to_sheet(Algorithm a, int n, float data, map<int, int>* degrees) {
     ofstream file;
     map<int, int> :: iterator it;
     if (a == DIAMETER || a == CLUSTER) {

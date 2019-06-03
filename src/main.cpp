@@ -5,7 +5,7 @@
 #include "utils.h"
 using namespace std;
 
-#define REPS 5
+#define REPS 3
 
 double get_r(int n) {
     return 2 * log(n) / n;
@@ -32,17 +32,16 @@ void run_clustering_coefficients() {
     Graph g;
     float coeff;
 
-    // create_empty_sheet(CLUSTER);
-    for (int n = 10; n <= 100000; n *= 10) {
+    create_empty_sheet(CLUSTER);
+    for (int n = 10; n <= 100000; n *= 2) {
         coeff = 0;
         for (int i = 0; i < REPS; ++i) {
             g = create_erdos_renyi_graph(n, get_r(n));
             coeff += get_clustering_coefficient(g);
-            cout << coeff << endl;
         }
         coeff /= REPS;
         cout <<  "From " << n << " nodes, got coefficient " << coeff << endl;
-        // write_to_sheet(CLUSTER, n, coeff, nullptr);
+        write_to_sheet(CLUSTER, n, coeff, nullptr);
     }
 }
 
@@ -63,7 +62,7 @@ int main() {
 
     // run_diameters();
     run_clustering_coefficients();
-    // run_degree_distributions();
+    run_degree_distributions();
     /* 
     vector<int> u{1, 1, 2, 2, 3, 3, 4};
     vector<int> v{2, 3, 4, 5, 4, 5, 5}; 
